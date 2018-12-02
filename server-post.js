@@ -1,7 +1,11 @@
 const { createServer } = require('http');
 const { createWriteStream } = require('fs');
+const { parse } = require('url');
 
 createServer((req, res) => {
+
+    const { pathname, query } = parse(req.url, true);
+    console.log(pathname, query);
 
     if (req.method === 'POST') {
         req.pipe(res);
