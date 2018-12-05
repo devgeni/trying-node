@@ -7,6 +7,9 @@ createServer((req, res) => {
     const { pathname, query } = parse(req.url, true);
     console.log(pathname, query);
 
+    const headers = req.headers;
+    console.log('these are headers:', headers);
+
     if (req.method === 'POST') {
         req.pipe(res);
         req.pipe(createWriteStream('./uploaded-file.noext'))
