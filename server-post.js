@@ -7,7 +7,7 @@ createServer((req, res) => {
     const { pathname, query } = parse(req.url, true);
     console.log(pathname, query);
 
-    const headers = req.headers;
+    const { headers } = req;
     console.log('these are headers:', headers);
 
     if (req.method === 'POST') {
